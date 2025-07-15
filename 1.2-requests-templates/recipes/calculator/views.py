@@ -28,3 +28,17 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+def recipe_view(request, dish):
+    servings = int(request.GET.get('servings', 1))
+    recipe = DATA.get(dish, {})
+
+    # Adjust ingredients based on servings
+    adjusted_recipe = {}
+    for ingredient, amount in recipe.items():
+        adjusted_recipe[ingredient] = amount * servings
+
+    context = {
+        'recipe': adjusted_recipe,
+        'servings': servings,
+        'dish': dish,
+    }
