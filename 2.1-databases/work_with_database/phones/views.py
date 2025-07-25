@@ -1,5 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+
+from django.shortcuts import render, get_object_or_404, redirect
+import sys
+sys.path.append("D:\PyCharm\dj-homeworks\2.1-databases\work_with_database\phones\models")
 from phones.models import Phone
+
+
+
 
 
 def index(request):
